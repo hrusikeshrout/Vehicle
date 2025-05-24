@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html>
+<head>
+    <title>Contact Vehicle Owner</title>
+</head>
+<body>
+    <h1>Contact Options for Vehicle: {{ vehicle.plate_number }}</h1>
+
+    <p>Color: {{ vehicle.color }}</p>
+    <p>Make & Model: {{ vehicle.make_model }}</p>
+
+    <h2>Choose an option:</h2>
+    <ul>
+        <li><a href="{% url 'contact_owner' vehicle.id 'call' %}">📞 Call Owner</a></li>
+        <li><a href="{% url 'contact_owner' vehicle.id 'message' %}">💬 Send Message</a></li>
+        <li><a href="{% url 'contact_owner' vehicle.id 'emergency' %}">🚨 Emergency Contact</a></li>
+    </ul>
+</body>
+</html>
+
+{% endblock %}

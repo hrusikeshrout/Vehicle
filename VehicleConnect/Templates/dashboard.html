@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h2>My Vehicles</h2>
+  <a href="{% url 'add_vehicle' %}" class="btn btn-primary mb-3">Add Vehicle</a>
+  <a href="{% url 'logout' %}" class="btn btn-secondary mb-3 float-end">Logout</a>
+
+  {% if vehicles %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Plate Number</th>
+          <th>Make & Model</th>
+          <th>Color</th>
+          <th>QR Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for vehicle in vehicles %}
+        <tr>
+          <td>{{ vehicle.plate_number }}</td>
+          <td>{{ vehicle.make_model }}</td>
+          <td>{{ vehicle.color }}</td>
+          <td>
+            {% if vehicle.qr_token %}
+              <img src="{{ vehicle.qr_token.url }}" alt="QR Code" width="100" />
+            {% else %}
+              No QR Code
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You haven't registered any vehicles yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

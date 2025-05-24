@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-light text-dark min-vh-100 d-flex flex-column justify-content-center align-items-center">
+
+  <div class="text-center">
+    <h1 class="display-4 fw-bold">🚗 VehicleConnect</h1>
+    <p class="lead mt-3">Easily contact vehicle owners in emergencies or parking issues without revealing their number.</p>
+    
+    <div class="mt-4">
+      <a href="{% url 'register' %}" class="btn btn-success btn-lg me-3">Get Started</a>
+      <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login</a>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <img src="https://cdn-icons-png.flaticon.com/512/7475/7475999.png" alt="QR on Vehicle" style="max-height: 100px;">
+  </div>
+
+</div>
+{% endblock %}
